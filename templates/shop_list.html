@@ -1,0 +1,17 @@
+{% extends 'admin/model/list.html' %}
+{% block body %}
+    <h1>Select food for buy</h1>
+    {{ super() }}
+{% endblock %}
+
+{% block list_row_actions %}
+    {{ super() }}
+    <form class="icon" method="POST" action="/addCard">
+        <input id="action" name="action" value="add_card" type="hidden">
+        <input name="rowid" value="{{ get_pk_value(row) }}" type="hidden">
+        <inpit name="order_qty" value="" type="input" class="">
+        <button onclick="return confirm('Are you sure you want to add to card selected food?');" title="Add to card">
+        <span class="fa fa-ok glyphicon glyphicon-ok"></span>
+        </button>
+  </form>
+{% endblock %}
